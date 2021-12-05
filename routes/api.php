@@ -36,3 +36,11 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::put('pegawai/{id}', 'Api\PegawaiController@update');
     Route::delete('pegawai/{id}', 'Api\PegawaiController@destroy');
 });
+
+Route::group(['middleware' => 'auth:api'], function (){
+    Route::get('transaction','Api\TransactionController@index');
+    Route::get('transaction/{id}','Api\TransactionController@show');
+    Route::post('transaction','Api\TransactionController@store');
+    Route::put('transaction/{id}','Api\TransactionController@update');
+    Route::delete('transaction/{id}','Api\TransactionController@destroy');
+});
