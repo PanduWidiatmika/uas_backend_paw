@@ -20,6 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('register', 'Api\AuthController@register');
 Route::post('login', 'Api\AuthController@login');
+Route::get('email/verify/{id}', 'Api\VerificationController@verify')->name('verificationapi.verify');
+Route::get('email/resend', 'Api\VerificationController@resend')->name('verificationapi.resend');
 
 Route::group(['middleware' => 'auth:api'], function() {
     Route::get('menu', 'Api\MenuController@index');

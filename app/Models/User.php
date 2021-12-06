@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 // use Laravel\Sanctum\HasApiTokens;
 use Laravel\Passport\HasApiTokens;
 use Carbon\Carbon;
+use App\Notification\Mail;
 
 class User extends Authenticatable
 {
@@ -58,4 +59,7 @@ class User extends Authenticatable
         }
     } // convert format updated_at menjadi Y-m-d H:i:s
     
+    public function sendApiEmailVerificationNotification(){
+        $this->notify(new Mail);
+    }
 }
