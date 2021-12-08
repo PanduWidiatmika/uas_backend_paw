@@ -29,6 +29,7 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::post('menu', 'Api\MenuController@store');
     Route::put('menu/{id}', 'Api\MenuController@update');
     Route::delete('menu/{id}','Api\MenuController@destroy');
+    Route::put('profile/{id}', 'Api\UserController@update');
 });
 
 Route::group(['middleware' => 'auth:api'], function () {
